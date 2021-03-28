@@ -31,7 +31,7 @@ public class RefString implements Binable {
 
         value = value.substring(2);
         this.value = value
-                .replace("(?<!\\)\\n", "\n")
+                .replaceAll("(?<!\\\\)\\\\n", "\n")
                 .replace("\\\\n", "\\n");
     }
 
