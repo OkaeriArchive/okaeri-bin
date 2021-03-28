@@ -31,14 +31,14 @@ public class RefString implements Binable {
 
         value = value.substring(2);
         this.value = value
-            .replaceAll("[^\\\\]\\\\n", "\n")
-            .replaceAll("\\\\\\\\n", "\\\\n");
+                .replace("(?<!\\)\\n", "\n")
+                .replace("\\\\n", "\\n");
     }
 
     @Override
     public String render() {
         return T_MARKER + this.value
-                .replaceAll("\\\\n", "\\\\\\\\n")
-                .replaceAll("\n", "\\\\n");
+                .replace("\\n", "\\\\n")
+                .replace("\n", "\\n");
     }
 }

@@ -22,7 +22,7 @@ Add dependency to the `dependencies` section:
 <dependency>
   <groupId>eu.okaeri</groupId>
   <artifactId>okaeri-bin</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.3</version>
 </dependency>
 ```
 ### Gradle
@@ -32,7 +32,7 @@ maven { url "https://storehouse.okaeri.eu/repository/maven-public/" }
 ```
 Add dependency to the `maven` section:
 ```groovy
-implementation 'eu.okaeri:okaeri-bin:1.1.2'
+implementation 'eu.okaeri:okaeri-bin:1.1.3'
 ```
 
 ## Code example
@@ -46,7 +46,7 @@ bin.put("xxxxxxxx", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
 bin.put("nenenene", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
 bin.put("nananana", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
 bin.put("hackin", "\0\0hallo");
-bin.put("multiline-string", "line1\nline2\nline2 too\\nline3");
+bin.put("multiline-string", "line1\nline2\\nline2 too\nline3");
 // inser data - collections
 bin.put("list-of-values", Arrays.asList(String.valueOf(1), String.valueOf(2), String.valueOf(3), String.valueOf(4), String.valueOf(5)));
 // insert data - maps
@@ -81,7 +81,7 @@ bin.load("");
 15   hackin
 16     hallo
 17   multiline-string
-18   line1\nline2\nline2 too\\nline3
+18   line1\nline2\\nline2 too\nline3
 19   map
 20   hackin2
 21  1512 2012
