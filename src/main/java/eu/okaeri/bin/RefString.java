@@ -7,7 +7,7 @@ public class RefString implements Binable {
 
     public static final String T_MARKER = "\0\0";
 
-    private Object value;
+    private String value;
 
     public static RefString of(String value) {
         RefString ref = new RefString();
@@ -30,11 +30,15 @@ public class RefString implements Binable {
         }
 
         value = value.substring(2);
-        this.value = value;
+        this.value = value
+            .replaceAll("[^\\\\]\\\\n", "\n")
+            .replaceAll("\\\\\\\\n", "\\\\n");
     }
 
     @Override
     public String render() {
-        return T_MARKER + this.value;
+        return T_MARKER + this.value
+                .replaceAll("\\\\n", "\\\\\\\\n")
+                .replaceAll("\n", "\\\\n");
     }
 }

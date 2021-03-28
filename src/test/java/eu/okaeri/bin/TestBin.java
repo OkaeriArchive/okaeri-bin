@@ -18,6 +18,7 @@ public class TestBin {
         bin.put("nenenene", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
         bin.put("nananana", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
         bin.put("hackin", "\0\0hallo");
+        bin.put("multiline-string", "line1\nline2\nline2 too\\nline3");
 
         Map<String, String> map = new LinkedHashMap<>();
         map.put("hackin", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
