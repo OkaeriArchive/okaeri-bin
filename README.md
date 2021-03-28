@@ -86,7 +86,7 @@ bin.load("");
 
 ## Supported types
 - `String`: base type, to preserve small size okaeri-bin does not support other types
-- `Collection<String>`: allows to store lists, sets any all other collections
+- `Collection<String>`: allows to store lists, sets, and other collections
 - `Map<String, String>`: stores maps and always preserves the order using LinkedHashMap
 
 ## Storing as file
