@@ -35,6 +35,14 @@ public class Bin {
         this.data.put(key, value);
     }
 
+    public void putUnsafe(String key, Object object) {
+        this.data.put(key, object);
+    }
+
+    public boolean containsKey(String key) {
+        return this.data.containsKey(key);
+    }
+
     public Object get(String key) {
         return this.data.get(key);
     }
