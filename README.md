@@ -6,7 +6,7 @@
 ![Contributors](https://img.shields.io/github/contributors/OkaeriPoland/okaeri-bin)
 [![Discord](https://img.shields.io/discord/589089838200913930)](https://discord.gg/hASN5eX)
 
-Simple binary format with built-in data deduplication.
+Simple binary format with built-in data deduplication. The library size is ~15kB.
 
 ## Installation
 ### Maven
