@@ -19,6 +19,9 @@ public class TestBin {
         bin.put("nananana", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
         bin.put("hackin", "\0\0hallo");
         bin.put("multiline-string", "line1\nline2\nline2 too\\nline3");
+        bin.putUnsafe("null", null);
+        bin.putUnsafe(null, null);
+        bin.putUnsafe(null, "null-key");
 
         Map<String, String> map = new LinkedHashMap<>();
         map.put("hackin", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
@@ -31,8 +34,8 @@ public class TestBin {
 
         bin.load(data);
         bin.getData().forEach((key, value) -> {
-            System.out.println(key.getClass() + " " + key);
-            System.out.println(value.getClass() + " " + value);
+            System.out.println(((key != null) ? key.getClass() : null) + " " + key);
+            System.out.println(((value != null) ? value.getClass() : null) + " " + value);
             System.out.println();
         });
     }

@@ -110,6 +110,9 @@ public class Bin {
                 case RefString.T_MARKER:
                     refValue = RefString.of(value);
                     break;
+                case RefNull.T_MARKER:
+                    refValue = RefNull.INSTANCE;
+                    break;
                 default:
                     throw new IllegalArgumentException("uknown entry: " + element);
             }
@@ -142,7 +145,9 @@ public class Bin {
         }
 
         private Object dereference(Object object, Map<Ref, Binable> refMap) {
-            if (object instanceof RefList) {
+            if (object instanceof RefNull) {
+                return null;
+            } else if (object instanceof RefList) {
                 return ((RefList) object).getList().stream()
                         .map(element -> this.dereference(element, refMap))
                         .collect(Collectors.toList());
@@ -182,7 +187,9 @@ public class Bin {
                 return (Ref) object;
             }
 
-            if (object instanceof Map) {
+            if (object == null) {
+                object = RefNull.INSTANCE;
+            } else if (object instanceof Map) {
                 Map<Ref, Ref> result = new LinkedHashMap<>();
                 Map<Object, Object> map = (Map<Object, Object>) object;
                 for (Map.Entry<Object, Object> entry : map.entrySet()) {
