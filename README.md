@@ -96,3 +96,6 @@ To preserve small size okaeri-bin does not support any other types than String, 
 
 ## Storing as file
 It is highly recommended to use `.obdf` extension when saving okaeri-bin files to the disk.
+
+## Limitations
+Current implementation allows a maximum of 9,223,372,036,854,775,807 unique elements to be stored, including child elements and any other nested elements.
