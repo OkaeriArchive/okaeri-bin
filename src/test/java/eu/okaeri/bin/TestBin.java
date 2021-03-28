@@ -22,7 +22,8 @@ public class TestBin {
         Map<String, String> map = new LinkedHashMap<>();
         map.put("hackin", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
         map.put("hackin2", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
-        bin.put("submap", map);
+        bin.put("map", map);
+        bin.put("submap", Collections.singletonMap("hmm", map));
 
         String data = bin.write();
         writeFile(new File("test.obdf"), data);

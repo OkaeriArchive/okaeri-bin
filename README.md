@@ -52,7 +52,8 @@ bin.put("list-of-values", Arrays.asList(String.valueOf(1), String.valueOf(2), St
 Map<String, String> map = new LinkedHashMap<>();
 map.put("hackin", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
 map.put("hackin2", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
-bin.put("submap", map);
+bin.put("map", map);
+bin.put("submap", Collections.singletonMap("hmm", map));
 // save to string
 bin.write();
 // load from string
@@ -78,16 +79,20 @@ bin.load("");
 14   nananana
 15   hackin
 16     hallo
-17   submap
+17   map
 18   hackin2
 19  1512 1812
-20  01 23 410 1112 1312 1412 1516 1719
+20   submap
+21   hmm
+22  2119
+23  01 23 410 1112 1312 1412 1516 1719 2022
 ```
 
 ## Supported types
-- `String`: base type, to preserve small size okaeri-bin does not support other types
-- `Collection<String>`: allows to store lists, sets, and other collections
-- `Map<String, String>`: stores maps and always preserves the order using LinkedHashMap
+To preserve small size okaeri-bin does not support any other types than String, Collection or Map.
+- `T`: base type `String` or any other type specified in this section
+- `Collection<T>`: list, set or other collection, returned as ArrayList
+- `Map<T, T>`: maps, stored ordered and returned as LinkedHashMap
 
 ## Storing as file
 It is highly recommended to use `.obdf` extension when saving okaeri-bin files to the disk.
