@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class RefString implements Binable {
 
-    public static final String T_MARKER = "\0\0";
+    public static final char T_MARKER = '\1';
 
     private String value;
 
@@ -24,12 +24,11 @@ public class RefString implements Binable {
     @Override
     public void load(String value) {
 
-        String marker = value.substring(0, 2);
-        if (!T_MARKER.equals(marker)) {
+        if (value.charAt(0) != T_MARKER) {
             throw new IllegalArgumentException("cannot use RefObject#load for non-marked object");
         }
 
-        value = value.substring(2);
+        value = value.substring(1);
         this.value = value
                 .replaceAll("(?<!\\\\)\\\\n", "\n")
                 .replace("\\\\n", "\\n");

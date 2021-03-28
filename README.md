@@ -22,7 +22,7 @@ Add dependency to the `dependencies` section:
 <dependency>
   <groupId>eu.okaeri</groupId>
   <artifactId>okaeri-bin</artifactId>
-  <version>1.1.4</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 ### Gradle
@@ -32,7 +32,7 @@ maven { url "https://storehouse.okaeri.eu/repository/maven-public/" }
 ```
 Add dependency to the `maven` section:
 ```groovy
-implementation 'eu.okaeri:okaeri-bin:1.1.4'
+implementation 'eu.okaeri:okaeri-bin:2.0.0'
 ```
 
 ## Code example
@@ -63,32 +63,32 @@ bin.load("");
 
 ## Format example
 ```text
-0   hello
-1   welcome everyone
-2   hiii
-3   12312
-4   list-of-values
-5   1
-6   2
-7   3
-8   4
-9   5
-10  5 6 7 8 9
-11   xxxxxxxx
-12   kop234kop 423kok 4o32 ko4pko4 p3opk4 2
-13   nenenene
-14   nananana
-15   hackin
-16     hallo
-17   multiline-string
-18   line1\nline2\\nline2 too\nline3
-19   map
-20   hackin2
-21  1512 2012
-22   submap
-23   hmm
-24  2321
-25  01 23 410 1112 1312 1412 1516 1718 1921 2224
+0 hello
+1 welcome everyone
+2 hiii
+3 12312
+4 xxxxxxxx
+5 kop234kop 423kok 4o32 ko4pko4 p3opk4 2
+6 nenenene
+7 nananana
+8 hackin
+9   hallo
+10 multiline-string
+11 line1\nline2\\nline2 too\nline3
+12 list-of-values
+13 1
+14 2
+15 3
+16 4
+17 5
+18 13 14 15 16 17
+19 map
+20 hackin2
+21 85 205
+22 submap
+23 hmm
+24 2321
+25 01 23 45 65 75 89 1011 1218 1921 2224
 ```
 
 ## Supported types

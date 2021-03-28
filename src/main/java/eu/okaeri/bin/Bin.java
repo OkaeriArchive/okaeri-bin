@@ -11,9 +11,8 @@ import java.util.stream.Collectors;
 @Data
 public class Bin {
 
-    public static final String T_MARKER_RAW = "\0\0";
-    public static final String T_VALUE_SEPARATOR = "\0";
-    public static final String T_ELEMENT_SEPARATOR = "\n";
+    public static final char T_VALUE_SEPARATOR = '\0';
+    public static final char T_ELEMENT_SEPARATOR = '\n';
 
     private Map<String, Object> data = new LinkedHashMap<>();
 
@@ -79,13 +78,13 @@ public class Bin {
 
     public void load(String data) {
 
-        String[] elements = data.split(T_ELEMENT_SEPARATOR);
+        String[] elements = data.split(String.valueOf(T_ELEMENT_SEPARATOR));
         Map<Ref, Binable> refMap = new LinkedHashMap<>();
         Ref lastRef = null;
 
         for (String element : elements) {
 
-            String[] keyValuePair = element.split(T_VALUE_SEPARATOR, 2);
+            String[] keyValuePair = element.split(String.valueOf(T_VALUE_SEPARATOR), 2);
             if (keyValuePair.length != 2) {
                 throw new IllegalArgumentException("cannot parse entry: " + element);
             }
@@ -93,12 +92,12 @@ public class Bin {
             String key = keyValuePair[0];
             String value = keyValuePair[1];
 
-            if (value.length() < 2) {
+            if (value.length() < 1) {
                 throw new IllegalArgumentException("broken entry: " + element);
             }
 
             Binable refValue;
-            String marker = value.substring(0, 2);
+            char marker = value.charAt(0);
 
             switch (marker) {
                 case RefList.T_MARKER:

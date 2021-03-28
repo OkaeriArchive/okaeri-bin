@@ -23,6 +23,7 @@ public class TestBin {
         bin.putUnsafe("null", null);
         bin.putUnsafe(null, null);
         bin.putUnsafe(null, "null-key");
+        bin.put("empty-string", "");
 
         Map<String, String> map = new LinkedHashMap<>();
         map.put("hackin", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
