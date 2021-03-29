@@ -20,6 +20,7 @@ public class TestBin {
         bin.put("hackin", "\0\0hallo");
         bin.put("multiline-string", "line1\nline2\\nline2 too\nline3");
         bin.put("multiline-string2", "WELCOME\nMULTIPLIE\n\nLINES\n!!!!!!!!!!!11111");
+        bin.put("multiline-string3", "hacky\\\nmultiline\\nstring\nthere is");
         bin.putUnsafe("null", null);
         bin.putUnsafe(null, null);
         bin.putUnsafe(null, "null-key");
