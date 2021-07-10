@@ -1,6 +1,7 @@
 package eu.okaeri.bin;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 public class RefNull implements Binable {
@@ -9,7 +10,7 @@ public class RefNull implements Binable {
     public static final RefNull INSTANCE = new RefNull();
 
     @Override
-    public void load(String value) {
+    public void load(@NonNull String value) {
 
         if (value.charAt(0) == T_MARKER) {
             return;

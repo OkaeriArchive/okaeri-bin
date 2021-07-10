@@ -1,13 +1,14 @@
 package eu.okaeri.bin;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 public class Ref implements Binable {
 
     private long value;
 
-    public static Ref of(String value) {
+    public static Ref of(@NonNull String value) {
         Ref ref = new Ref();
         ref.load(value);
         return ref;
@@ -20,7 +21,7 @@ public class Ref implements Binable {
     }
 
     @Override
-    public void load(String value) {
+    public void load(@NonNull String value) {
         this.value = Long.parseLong(value);
     }
 

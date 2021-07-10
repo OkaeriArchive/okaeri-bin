@@ -1,6 +1,7 @@
 package eu.okaeri.bin;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -16,7 +17,7 @@ public class Bin {
 
     private Map<String, Object> data = new LinkedHashMap<>();
 
-    public static Bin of(Map<String, Object> data) {
+    public static Bin of(@NonNull Map<String, Object> data) {
         Bin bin = new Bin();
         bin.data = data;
         return bin;
@@ -76,7 +77,7 @@ public class Bin {
         return buf.toString();
     }
 
-    public void load(String data) {
+    public void load(@NonNull String data) {
 
         String[] elements = data.split(String.valueOf(T_ELEMENT_SEPARATOR));
         Map<Ref, Binable> refMap = new LinkedHashMap<>();

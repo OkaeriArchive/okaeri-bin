@@ -1,6 +1,7 @@
 package eu.okaeri.bin;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -15,20 +16,20 @@ public class RefMap implements Binable {
 
     private Map<Ref, Ref> map;
 
-    public static RefMap of(String value) {
+    public static RefMap of(@NonNull String value) {
         RefMap ref = new RefMap();
         ref.load(value);
         return ref;
     }
 
-    public static RefMap of(Map<Ref, Ref> map) {
+    public static RefMap of(@NonNull Map<Ref, Ref> map) {
         RefMap ref = new RefMap();
         ref.map = map;
         return ref;
     }
 
     @Override
-    public void load(String value) {
+    public void load(@NonNull String value) {
 
         if (value.charAt(0) != T_MARKER) {
             throw new IllegalArgumentException("cannot use refMap#load for non-marked object");

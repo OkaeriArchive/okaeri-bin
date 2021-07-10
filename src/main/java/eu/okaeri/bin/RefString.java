@@ -1,6 +1,7 @@
 package eu.okaeri.bin;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 public class RefString implements Binable {
@@ -9,20 +10,20 @@ public class RefString implements Binable {
 
     private String value;
 
-    public static RefString of(String value) {
+    public static RefString of(@NonNull String value) {
         RefString ref = new RefString();
         ref.load(value);
         return ref;
     }
 
-    public static RefString ofRaw(String value) {
+    public static RefString ofRaw(@NonNull String value) {
         RefString ref = new RefString();
         ref.value = value;
         return ref;
     }
 
     @Override
-    public void load(String value) {
+    public void load(@NonNull String value) {
 
         if (value.charAt(0) != T_MARKER) {
             throw new IllegalArgumentException("cannot use RefObject#load for non-marked object");

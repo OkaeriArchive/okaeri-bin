@@ -1,6 +1,7 @@
 package eu.okaeri.bin;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,20 +15,20 @@ public class RefList implements Binable {
 
     private Collection<Ref> list;
 
-    public static RefList of(String value) {
+    public static RefList of(@NonNull String value) {
         RefList ref = new RefList();
         ref.load(value);
         return ref;
     }
 
-    public static RefList of(Collection<Ref> list) {
+    public static RefList of(@NonNull Collection<Ref> list) {
         RefList ref = new RefList();
         ref.list = list;
         return ref;
     }
 
     @Override
-    public void load(String value) {
+    public void load(@NonNull String value) {
 
         if (value.charAt(0) != T_MARKER) {
             throw new IllegalArgumentException("cannot use RefList#load for non-marked object");
