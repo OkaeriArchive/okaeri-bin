@@ -43,7 +43,7 @@ Bin bin = new Bin();
 bin.put("hello", "welcome everyone");
 bin.put("hiii", String.valueOf(12312));
 bin.put("xxxxxxxx", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
-bin.put("nenenene", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
+bin.put("renerene", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
 bin.put("nananana", "kop234kop 423kok 4o32 ko4pko4 p3opk4 2");
 bin.put("hackin", "\0\0hallo");
 bin.put("multiline-string", "line1\nline2\\nline2 too\nline3");
