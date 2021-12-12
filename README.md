@@ -9,15 +9,20 @@
 Simple binary-like format with built-in data deduplication. The library size is ~17kB.
 
 ## Installation
+
 ### Maven
+
 Add repository to the `repositories` section:
+
 ```xml
 <repository>
     <id>okaeri-repo</id>
     <url>https://storehouse.okaeri.eu/repository/maven-public/</url>
 </repository>
 ```
+
 Add dependency to the `dependencies` section:
+
 ```xml
 <dependency>
   <groupId>eu.okaeri</groupId>
@@ -25,17 +30,23 @@ Add dependency to the `dependencies` section:
   <version>2.0.1</version>
 </dependency>
 ```
+
 ### Gradle
+
 Add repository to the `repositories` section:
+
 ```groovy
 maven { url "https://storehouse.okaeri.eu/repository/maven-public/" }
 ```
+
 Add dependency to the `maven` section:
+
 ```groovy
 implementation 'eu.okaeri:okaeri-bin:2.0.1'
 ```
 
 ## Code example
+
 ```java
 // create bin
 Bin bin = new Bin();
@@ -62,6 +73,7 @@ bin.load("");
 ```
 
 ## Format example
+
 ```text
 0 hello
 1 welcome everyone
@@ -92,13 +104,17 @@ bin.load("");
 ```
 
 ## Supported types
+
 To preserve small size okaeri-bin does not support any other types than String, Collection or Map.
+
 - `T`: base type `String` or any other type specified in this section
 - `Collection<T>`: list, set or other collection, returned as ArrayList
 - `Map<T, T>`: maps, stored ordered and returned as LinkedHashMap
 
 ## Storing as file
+
 It is highly recommended to use `.obdf` extension when saving okaeri-bin files to the disk.
 
 ## Limitations
+
 Current implementation allows a maximum of `9,223,372,036,854,775,807` unique elements to be stored, including child elements and any other nested elements.

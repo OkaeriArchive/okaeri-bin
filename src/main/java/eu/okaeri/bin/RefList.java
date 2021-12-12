@@ -36,14 +36,14 @@ public class RefList implements Binable {
 
         value = value.substring(1);
         this.list = Arrays.stream(value.split(String.valueOf(T_ELEMENT_SEPARATOR)))
-                .map(Ref::of)
-                .collect(Collectors.toList());
+            .map(Ref::of)
+            .collect(Collectors.toList());
     }
 
     @Override
     public String render() {
         return T_MARKER + this.list.stream()
-                .map(Ref::render)
-                .collect(Collectors.joining(String.valueOf(T_ELEMENT_SEPARATOR)));
+            .map(Ref::render)
+            .collect(Collectors.joining(String.valueOf(T_ELEMENT_SEPARATOR)));
     }
 }

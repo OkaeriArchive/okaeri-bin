@@ -149,8 +149,8 @@ public class Bin {
                 return null;
             } else if (object instanceof RefList) {
                 return ((RefList) object).getList().stream()
-                        .map(element -> this.dereference(element, refMap))
-                        .collect(Collectors.toList());
+                    .map(element -> this.dereference(element, refMap))
+                    .collect(Collectors.toList());
             } else if (object instanceof RefMap) {
                 Map<Ref, Ref> map = ((RefMap) object).getMap();
                 Map<Object, Object> result = new LinkedHashMap<>();
@@ -160,8 +160,7 @@ public class Bin {
                 return result;
             } else if (object instanceof RefString) {
                 return this.dereference(((RefString) object).getValue(), refMap);
-            }
-            else if (object instanceof Ref) {
+            } else if (object instanceof Ref) {
                 return this.dereference(refMap.get(object), refMap);
             }
             return object;
@@ -198,8 +197,8 @@ public class Bin {
                 object = RefMap.of(result);
             } else if (object instanceof Collection) {
                 object = ((Collection<?>) object).stream()
-                        .map(this::map)
-                        .collect(Collectors.toList());
+                    .map(this::map)
+                    .collect(Collectors.toList());
                 object = RefList.of((Collection<Ref>) object);
             } else if (object instanceof String) {
                 object = RefString.ofRaw((String) object);

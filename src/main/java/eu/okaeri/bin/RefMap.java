@@ -50,7 +50,7 @@ public class RefMap implements Binable {
     @Override
     public String render() {
         return T_MARKER + this.map.entrySet().stream()
-                .map((entry) -> entry.getKey().render() + T_VALUE_SEPARATOR + entry.getValue().render())
-                .collect(Collectors.joining(String.valueOf(T_ELEMENT_SEPARATOR)));
+            .map((entry) -> entry.getKey().render() + T_VALUE_SEPARATOR + entry.getValue().render())
+            .collect(Collectors.joining(String.valueOf(T_ELEMENT_SEPARATOR)));
     }
 }
